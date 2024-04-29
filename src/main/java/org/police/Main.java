@@ -9,6 +9,8 @@ public class Main {
     static String PASSWORD = "default";
     static Scanner SCANNER = new Scanner(System.in);
     static String EMAIL_PATTERN = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+    static String NAME_PATTERN = "^[A-Z][a-z]*$";
+
 
     public static void main(String[] args) {
         run();
@@ -31,15 +33,30 @@ public class Main {
     }
 
     static Client buildClient(String email) {
-        Client client = new Client();
-        client.email = email;
-        System.out.println("First name: ");
-        String firstName = SCANNER.nextLine();
-        client.firstName = firstName;
-        System.out.println("LastName: ");
-        String lastName = SCANNER.nextLine();
-        client.lastName = lastName;
-        return client;
+
+
+        while (true){
+            System.out.println("First name: ");
+            String firstName = SCANNER.nextLine();
+
+            System.out.println("LastName: ");
+            String lastName = SCANNER.nextLine();
+
+            if (isNameValide(firstName) && isNameValide(lastName)) {
+                Client client = new Client();
+                client.email = email;
+                client.firstName = firstName;
+                client.lastName = lastName;
+                return client;
+            } else {
+                System.out.println("Невірний формат імені, з великої літери без пробілів і тільки літери");
+            }
+
+
+        }
+
+
+
     }
 
     static boolean auth() {
@@ -61,6 +78,13 @@ public class Main {
     private static boolean isEmailValide(String email) {
         Pattern pattern = Pattern.compile(EMAIL_PATTERN);
         Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+
+
+    private static boolean isNameValide(String name) {
+        Pattern pattern = Pattern.compile(NAME_PATTERN);
+        Matcher matcher = pattern.matcher(name);
         return matcher.matches();
     }
 }
