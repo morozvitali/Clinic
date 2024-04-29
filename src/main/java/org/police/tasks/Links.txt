@@ -1,0 +1,11 @@
+8 VetClinic на GitHub - https://github.com/ybrezmen/vet-clinic
+https://www.youtube.com/watch?v=qtwn3aj7aZ4&t=9s
+
+10 Регулярні вирази: розвиток проєкту.
+https://www.youtube.com/watch?v=55po4S0bLWQ
+
+11 Наслідування та інкапсуляція: розвиток проєкту.
+https://www.youtube.com/watch?v=aM9-PvqL3rI&t=3s
+
+12 Поліморфізм: розвиток проєкту.
+https://www.youtube.com/watch?v=Hz7-8McTnnw
