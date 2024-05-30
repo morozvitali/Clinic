@@ -1,11 +1,24 @@
 package org.clinic.model;
 
-public class Pet { // справа
+public abstract class Pet {
+
     private String type;
     private String sex;
     private String age;
     private String name;
-    private String ownerName; // name of detective who catch this bandit
+    private String ownerName;
+
+
+    @Override
+    public String toString() {
+        return "Pet {"
+                + "type = " + type
+                + ", sex = " + sex
+                + ", age = " + age
+                + ", name = " + name
+                + ", ownerName = " + ownerName
+                + "}";
+    }
 
     public String getType() { return type; }
     public void setType (String type) {

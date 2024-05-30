@@ -17,7 +17,7 @@ public class Authenticator {
                 System.out.println("Accept denied. Please check your password");
             }
         }
-        System.out.println(accepted ? "Welcome to the police" : "Application has been blocked");
+        System.out.println(accepted ? "Welcome to the clinic" : "Application has been blocked");
         return accepted;
     }
 }
