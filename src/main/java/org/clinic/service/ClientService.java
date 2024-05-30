@@ -2,66 +2,46 @@ package org.clinic.service;
 
 import org.clinic.Main;
 import org.clinic.model.Client;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ClientService {
+    public class ClientService {
+        private static final String EMAIL_PATTERN = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
 
-    private static final String EMAIL_PATTERN = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
-    private static final String NAME_PATTERN = "^[A-Z][a-z]*$";
-
-    public Client registerNewClient() {
-        Client client = null;
-
-        System.out.println("Please provide a user details:");
-        System.out.println("Email: ");
-        String email = Main.SCANNER.nextLine();
-
-        if (isEmailValide(email)) {
-            client = buildClient(email);
-            System.out.println("New client: "
-                    + client.getFirstName() + " "
-                    + client.getLastName() + " ("
-                    + client.getEmail() + ")");
-        } else {
-            System.out.println("Provided email is invalid.");
-        }
-        return client;
-    }
-
-
-    private static Client buildClient(String email) {
-
-        while (true){
-            System.out.println("First name: ");
-            String firstName = Main.SCANNER.nextLine();
-
-            System.out.println("LastName: ");
-            String lastName = Main.SCANNER.nextLine();
-
-            if (isNameValide(firstName) && isNameValide(lastName)) {
-                Client detective = new Client();
-                detective.setEmail(email);
-                detective.setFirstName(firstName);
-                detective.setLastName(lastName);
-                return detective;
+        public Client registerNewClient() {
+            Client client = null;
+            System.out.println("Please provide client details.");
+            System.out.print("Email: ");
+            String email = Main.SCANNER.nextLine();
+            if (isEmailValid(email)) {
+                client = buildClient(email);
+                System.out.println("New client: " + client.getFirstName() + " "
+                        + client.getLastName() + " ("
+                        + client.getEmail() + ")");
             } else {
-                System.out.println("Невірний формат імені, з великої літери без пробілів і тільки літери");
+                System.out.println("Provided email is invalid.");
             }
+            return client;
+        }
+        private static Client buildClient(String email) {
+            Client client = new Client();
+            client.setEmail(email);
+            System.out.print("First name: ");
+            client.setFirstName(Main.SCANNER.nextLine());
+            System.out.print("Last name: ");
+            client.setLastName(Main.SCANNER.nextLine());
+
+            System.out.print("Location: ");
+            String location = Main.SCANNER.nextLine();
+            client.setLocation(Client.Location.valueOf(location));
+
+            return client;
+        }
+
+        private static boolean isEmailValid(String email) {
+            Pattern pattern = Pattern.compile(EMAIL_PATTERN);
+            Matcher matcher = pattern.matcher(email);
+            return  matcher.matches();
         }
     }
-
-    public static boolean isEmailValide(String email) {
-        Pattern pattern = Pattern.compile(EMAIL_PATTERN);
-        Matcher matcher = pattern.matcher(email);
-        return matcher.matches();
-    }
-
-    private static boolean isNameValide(String name) {
-        Pattern pattern = Pattern.compile(NAME_PATTERN);
-        Matcher matcher = pattern.matcher(name);
-        return matcher.matches();
-    }
-}
-
-

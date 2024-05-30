@@ -2,7 +2,6 @@ package org.clinic.model;
 import java.util.Objects;
 import java.util.ArrayList;
 import java.util.List;
-import org.clinic.model.Client;
 
 
 public class Client {
@@ -11,6 +10,7 @@ public class Client {
     private String email;
 
     private List<Pet> pets = new ArrayList<>();
+    private Location location;
 
 
     @Override
@@ -19,6 +19,7 @@ public class Client {
                 + "\n\tfirstName = " + firstName
                 + ", lastName = " + lastName
                 + ", email = " + email
+                + ", location = " + location
                 + ",\n\tpets = " + pets
                 + "\n}";
     }
@@ -58,15 +59,27 @@ public class Client {
         this.email = email;
     }
 
-    public List<Pet> getPet() {
+    public List<Pet> getPets() {
         return pets;
     }
 
-    public void setPet(List<Pet> pets) {
+    public void setPets(List<Pet> pets) {
         this.pets = pets;
     }
 
     public void addPet(Pet pet) {
         pets.add(pet);
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public enum Location {
+        KYIV, LVIV, ODESA
     }
 }
