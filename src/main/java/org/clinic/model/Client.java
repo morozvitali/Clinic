@@ -1,11 +1,17 @@
 package org.clinic.model;
 import java.util.Objects;
+import java.util.ArrayList;
+import java.util.List;
+import org.clinic.model.Client;
+
 
 public class Client {
     private String firstName;
     private String lastName;
     private String email;
-    private Pet pet;
+
+    private List<Pet> pets = new ArrayList<>();
+
 
     @Override
     public String toString() {
@@ -13,7 +19,7 @@ public class Client {
                 + "\n\tfirstName = " + firstName
                 + ", lastName = " + lastName
                 + ", email = " + email
-                + ",\n\tpet = " + pet
+                + ",\n\tpets = " + pets
                 + "\n}";
     }
 
@@ -25,12 +31,12 @@ public class Client {
         return Objects.equals(firstName, client.firstName)
                 && Objects.equals(lastName, client.lastName)
                 && Objects.equals(email, client.email)
-                && Objects.equals(pet, client.pet);
+                && Objects.equals(pets, client.pets);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, lastName, email, pet);
+        return Objects.hash(firstName, lastName, email, pets);
     }
 
     public String getFirstName() {
@@ -52,11 +58,15 @@ public class Client {
         this.email = email;
     }
 
-    public Pet getPet() {
-        return pet;
+    public List<Pet> getPet() {
+        return pets;
     }
 
-    public void setPet(Pet pet) {
-        this.pet = pet;
+    public void setPet(List<Pet> pets) {
+        this.pets = pets;
+    }
+
+    public void addPet(Pet pet) {
+        pets.add(pet);
     }
 }
