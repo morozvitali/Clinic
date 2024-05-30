@@ -1,4 +1,3 @@
-
 package org.clinic;
 
 import org.clinic.component.Application;
