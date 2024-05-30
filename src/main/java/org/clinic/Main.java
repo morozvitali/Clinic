@@ -1,7 +1,7 @@
 
-package org.police;
+package org.clinic;
 
-import org.police.component.Application;
+import org.clinic.component.Application;
 import java.util.Scanner;
 
 public class Main {

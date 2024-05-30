@@ -1,14 +1,14 @@
-package org.police.service;
+package org.clinic.service;
 
-import org.police.Main;
-import org.police.model.Client;
+import org.clinic.Main;
+import org.clinic.model.Client;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ClientService {
 
-    private static String EMAIL_PATTERN = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
-    private static String NAME_PATTERN = "^[A-Z][a-z]*$";
+    private static final String EMAIL_PATTERN = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+    private static final String NAME_PATTERN = "^[A-Z][a-z]*$";
 
     public Client registerNewClient() {
         Client client = null;

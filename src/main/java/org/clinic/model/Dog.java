@@ -1,4 +1,4 @@
-package org.police.model;
+package org.clinic.model;
 
 public class Dog extends Pet {
     private String size;

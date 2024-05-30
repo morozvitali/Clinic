@@ -1,11 +1,9 @@
-package org.police.component;
+package org.clinic.component;
 
-import org.police.Main;
+import org.clinic.Main;
 
 public class Authenticator {
-    private static String PASSWORD = "d";
-    //static Scanner SCANNER = new Scanner(System.in);
-
+    private static final String PASSWORD = "d";
 
     public static boolean auth() {
         boolean accepted = false;
