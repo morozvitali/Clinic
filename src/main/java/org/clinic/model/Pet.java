@@ -1,12 +1,25 @@
 package org.clinic.model;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+
+
 public abstract class Pet {
+
+    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("HH:mm dd/MM/yyyy");
+
+
 
     private String type;
     private String sex;
     private String age;
     private String name;
     private String ownerName;
+
+    private final LocalDateTime registrationDate = LocalDateTime.now();
+
+
 
 
     @Override
@@ -17,6 +30,7 @@ public abstract class Pet {
                 + ", age = " + age
                 + ", name = " + name
                 + ", ownerName = " + ownerName
+                + ", registrationDate = " + registrationDate.format(FORMATTER)
                 + "}";
     }
 
