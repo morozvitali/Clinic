@@ -1,14 +1,15 @@
-package org.police.component;
+package org.clinic.component;
 
-import org.police.model.Pet;
-import org.police.model.Client;
-import org.police.service.PetService;
-import org.police.service.ClientService;
+import org.clinic.model.Pet;
+import org.clinic.model.Client;
+import org.clinic.service.PetService;
+import org.clinic.service.ClientService;
 
 public class Application {
 
-    private ClientService clientService = new ClientService();
-    private PetService petService = new PetService();
+    private final ClientService clientService = new ClientService();
+    private final PetService petService = new PetService();
+
     public void run() {
         if (Authenticator.auth()) {
             Client client = clientService. registerNewClient();

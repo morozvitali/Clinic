@@ -1,12 +1,12 @@
-package org.police.service;
+package org.clinic.service;
 
-import org.police.Main;
-import org.police.model.Pet;
-import org.police.model.Dog;
+import org.clinic.Main;
+import org.clinic.model.Pet;
+import org.clinic.model.Dog;
 
 public class PetService {
 
-    private static String DOG_TYPE = "dog";
+    private static final String DOG_TYPE = "dog";
 
     public Pet registerNewPet () {
         Pet pet = new Pet();
