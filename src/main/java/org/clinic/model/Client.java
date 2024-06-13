@@ -43,18 +43,23 @@ public class Client {
     public String getFirstName() {
         return firstName;
     }
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
+
     public String getLastName() {
         return lastName;
     }
+
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
     public String getEmail() {
         return email;
     }
+
     public void setEmail(String email) {
         this.email = email;
     }
@@ -80,6 +85,17 @@ public class Client {
     }
 
     public enum Location {
-        KYIV, LVIV, ODESA, UNKNOWN
+        KYIV, LVIV, ODESA;
+
+        public static Location fromString(String location) {
+            for (Location loc : Location.values()) {
+                if (loc.name().equalsIgnoreCase(location)) {
+                    return loc;
+                }
+            }
+            return null;
+
+
+        }
     }
 }
