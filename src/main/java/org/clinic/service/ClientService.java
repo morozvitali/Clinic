@@ -3,14 +3,14 @@ package org.clinic.service;
 import org.clinic.Main;
 import org.clinic.model.Client;
 import org.clinic.model.Client.Location;
-
+import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ClientService {
     private static final String EMAIL_PATTERN = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
 
-    public Client registerNewClient() {
+    public Optional<Client> registerNewClient() {
         Client client = null;
         System.out.println("Please provide client details.");
         System.out.print("Email: ");
@@ -23,7 +23,7 @@ public class ClientService {
         } else {
             System.out.println("Provided email is invalid.");
         }
-        return client;
+        return Optional.ofNullable(client);
     }
 
     private Client buildClient(String email) {
